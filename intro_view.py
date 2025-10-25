@@ -20,3 +20,6 @@ class IntroView:
         \n"""
         intro_message += "-First to make a line on the board with three slots wins!"
         print(intro_message)
+
+    def ask_user_to_play(self):
+        return input("Do you and your opponent want to play? [Y/N] ")
