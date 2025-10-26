@@ -6,7 +6,7 @@ class MatchView:
         print(f"It's player {player.symbol}'s turn to choose a slot")
 
     def ask_for_slot_choice(self):
-        return input("Enter your slot choice (1-9):")
+        return input("Enter your slot choice (1-9): ")
 
     def display_board_state(self,mapping_of_choices:dict):
         print(f"Here's the current board state:"
@@ -18,3 +18,6 @@ class MatchView:
 
     def display_seperator(self):
         print("====================== GAME HAS STARTED ! =========================")
+
+    def display_value_error(self):
+        print("Error: Expected a number between 1 and 9. ")

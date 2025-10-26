@@ -31,13 +31,25 @@ def main():
             else: #If the user responded (N,n) -> terminate the program
                 return #Since this is inside a function, the main(), it should terminate the program.
 
+    #Instantiiate a Match object
     match_controller.start_match()
 
     #To put all this in a loop
+    #Set who gets to pick a slot
     match_controller.match.determine_priority()
+
+    #Print out who gets to pick a slot
     match_controller.display_player_with_priority()
+
+    #Print the board and the pieces on the board
     match_controller.get_board_state()
 
+    #Get the choice from the player who can pick
+    slot_choice = match_controller.prompt_user_slot_choice()
+
+    #Validate the input
+    while not match_controller.validate_slot_pick(slot_choice):
+        slot_choice = match_controller.prompt_user_slot_choice()
 
 
 
