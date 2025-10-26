@@ -24,10 +24,10 @@ class MatchController:
 
     def validate_slot_pick(self, slot:str):
         """
-        Method that returns True when slot is a str that has anumerical value between 1 and 9 inclusively.
+        Method that returns the slot number when slot is a str that has anumerical value between 1 and 9 inclusively.
         To be used in the main file to repeat the input of the slot choice if it keeps being invalid.
         :param slot:Input from the user
-        :return: False = invalid input. True = valid inpt
+        :return: False = invalid input. slot_number = valid number input between 1 and 9 inclusively
         """
         try:
             slot_number = int(slot)
@@ -37,5 +37,7 @@ class MatchController:
             self.view.display_value_error()
             return False
         else:
-            return True
+            return slot_number
 
+    def update_board(self,slot_number:int):
+        self.match.update_board_state(slot_number)

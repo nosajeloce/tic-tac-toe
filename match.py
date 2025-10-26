@@ -25,3 +25,7 @@ class Match:
                 self.player_with_priority = self.player_o
             else:
                 self.player_with_priority = self.player_x
+
+    def update_board_state(self,slot_number:int):
+        self.board_state[slot_number] = self.player_with_priority.symbol
+

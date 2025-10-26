@@ -51,6 +51,11 @@ def main():
     while not match_controller.validate_slot_pick(slot_choice):
         slot_choice = match_controller.prompt_user_slot_choice()
 
+    #Update board state
+    match_controller.update_board(slot_choice)
+
+    #Check if the player who played just end the game with a victory or a draw
+
 
 
 if __name__ == "__main__":
