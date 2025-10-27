@@ -27,3 +27,11 @@ class MatchView:
 
     def display_draw_result(self):
         print("It's a draw!")
+
+    def display_score(self,score_mapping:dict):
+        symbols = list(score_mapping.keys())
+        scores =  list(score_mapping.values())
+        print(f"Score: Player {symbols[0]} [{scores[0]} - {scores[1]}] Player {symbols[1]}")
+
+    def display_invalid_input_error(self, e):
+        print(e)
