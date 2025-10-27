@@ -2,16 +2,20 @@ from intro_controller import IntroController
 from intro_view import IntroView
 from match_view import MatchView
 from match_controller import MatchController
+from game_model import GameModel
 
 def main():
-    #Instanciate views and controllers
+    #Instanciate model object, views and controllers
+    #Model
+    model = GameModel()
+
     #Views
     intro_view = IntroView()
     match_view = MatchView()
 
     #Controllers
     intro_controller = IntroController(intro_view)
-    match_controller = MatchController(match_view)
+    match_controller = MatchController(model, match_view)
 
     #Welcome message, developer name, HOW-TO-PLAY, how to win
     intro_controller.get_intro_message()
@@ -34,7 +38,7 @@ def main():
 
         while True: #while True = match is pending
             # Set who gets to pick a slot
-            match_controller.match.determine_priority()
+            match_controller.determine_priority()
 
             #Print out who gets to pick a slot
             match_controller.display_player_with_priority()
@@ -61,6 +65,13 @@ def main():
             if match_is_ending: #if True = the match will end
                 match_controller.get_board_state()
                 match_controller.display_final_result()
+
+                #Update and display scoreboard for playing session
+                match_controller.update_score()
+                match_controller.display_score()
+
+                #Save the match to keep track of the score
+                match_controller.save_match()
                 break
 
         continue_playing = intro_controller.ask_user_to_play_again().upper()
