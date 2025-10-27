@@ -32,3 +32,5 @@ class IntroController:
             print(f"Error: {e}")
             return False #This continues the main loop to give chance for the user to correct their input
 
+    def ask_user_to_play_again(self):
+        return self.view.ask_user_to_play_again()
